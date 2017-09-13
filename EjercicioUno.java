@@ -15,9 +15,10 @@ public class EjercicioUno {
 
     /**
      * @param args the command line arguments
-     * se debe mostrar el siguente mensaje: 
-     * esto funciona de maravilla
-     * 
+     * ingresar un numero 
+     * ingresar otro numero
+     * sumar
+     * mostrar
      */
     public static void main(String[] args) {
         // TODO code application logic here
