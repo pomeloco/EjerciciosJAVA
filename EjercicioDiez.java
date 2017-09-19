@@ -20,15 +20,20 @@ informar cuánto dinero le corresponde a cada uno.
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int cantidadGanadoresLoteria=0;
+        String Dato;
+        Integer cantidadGanadoresLoteria=0;
         float montoTotalAcumulado=0, dineroRepartidoEntreGanadores=0;
         Scanner miSc = new Scanner(System.in);
         
         System.out.println("Ingrese cantidad de ganadores: ");
-        cantidadGanadoresLoteria = miSc.nextInt();
+        //cantidadGanadoresLoteria = miSc.nextInt();
+        Dato = miSc.next();
+        cantidadGanadoresLoteria = Integer.parseInt(Dato);
         
         System.out.println("Ingrese dinero total acumulado: ");
-        montoTotalAcumulado = miSc.nextFloat();
+        //montoTotalAcumulado = miSc.nextFloat();
+        Dato = miSc.next();
+        montoTotalAcumulado = Float.parseFloat(Dato);
         
         dineroRepartidoEntreGanadores = montoTotalAcumulado/cantidadGanadoresLoteria;
         System.out.println("el suma de dinero que le toca a cada uno es; "+dineroRepartidoEntreGanadores);
