@@ -20,13 +20,16 @@ internos.
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String Dato;
         float precioProductoImporado=0, precioTotal=0;
         Scanner miSc = new Scanner(System.in);
         
         System.out.println("Ingrese importe de producto: ");
-        precioProductoImporado = miSc.nextFloat();
+        //precioProductoImporado = miSc.nextFloat();
+        Dato = miSc.next();
+        precioProductoImporado = Float.parseFloat(Dato);
         
-        precioTotal= precioProductoImporado+(precioProductoImporado*25/100);
+        precioTotal = precioProductoImporado + (precioProductoImporado*35/100);
         System.out.println("El precio total es: "+precioTotal);
     }
     
