@@ -26,6 +26,7 @@ public class EjercicioCuatro {
         
         System.out.println("Ingrese su edad: ");
         edad = miSc.nextInt();
+        miSc.nextLine(); //soluciona problema de buffer 
         
         //no pide nombre 
         System.out.println("Ingrese su nombre: ");
