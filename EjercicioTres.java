@@ -5,6 +5,8 @@
  */
 package ejerciciotres;
 
+import java.util.Scanner;
+
 /**
  *
  * @author alumno
@@ -18,6 +20,16 @@ public class EjercicioTres {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String nombre,apellido; 
+        Scanner miSc = new Scanner(System.in);
+        
+        System.out.println("Ingrese su nombre: ");
+        nombre = miSc.nextLine();
+        
+        System.out.println("Ingrese su apellido: ");
+        apellido = miSc.nextLine();
+        
+        System.out.println("Su nombre es: "+nombre+" y su apellido es: "+apellido);
     }
     
 }
