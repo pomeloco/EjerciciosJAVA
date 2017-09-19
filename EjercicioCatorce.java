@@ -35,4 +35,7 @@ public class EjercicioCatorce {
         }
     }
     
+    //quince: se ingresa un importe si supera los 100p se le suma un 23%, si es menor se le descuenta el 50%
+    // dieciseis: se ingresa el importe de un pasaje de avion, y el mes de viaje, si es enero: se le descuenta 10% por temporada baja
+    
 }
