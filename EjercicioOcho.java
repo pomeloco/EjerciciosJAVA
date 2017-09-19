@@ -5,6 +5,8 @@
  */
 package ejercicioocho;
 
+import java.util.Scanner;
+
 /**
  *
  * @author alumno
@@ -17,6 +19,17 @@ public class EjercicioOcho {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        float largo=0, ancho=0, superficie=0;
+        Scanner miSc = new Scanner(System.in);
+        
+        System.out.println("Ingrese largo: ");
+        largo = miSc.nextFloat();
+        
+        System.out.println("Ingrese ancho: ");
+        ancho = miSc.nextFloat();
+        
+        superficie=largo*ancho;
+        System.out.println("La superficie es: "+superficie);
     }
     
 }
