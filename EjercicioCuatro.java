@@ -5,6 +5,8 @@
  */
 package ejerciciocuatro;
 
+import java.util.Scanner;
+
 /**
  *
  * @author alumno
@@ -18,6 +20,18 @@ public class EjercicioCuatro {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        int edad;
+        String nombre;
+        Scanner miSc = new Scanner(System.in);
+        
+        System.out.println("Ingrese su edad: ");
+        edad = miSc.nextInt();
+        
+        //no pide nombre 
+        System.out.println("Ingrese su nombre: ");
+        nombre = miSc.nextLine();
+        
+        System.out.println("Usted se llama: "+nombre+" y tiene "+edad+" años de edad");
     }
     
 }
