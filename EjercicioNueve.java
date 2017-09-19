@@ -19,7 +19,7 @@ public class EjercicioNueve {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int cantidad=0;
+       /* int cantidad=0;
         float precioProducto=0, total=0;
         Scanner miSc = new Scanner(System.in);
         
@@ -30,8 +30,24 @@ public class EjercicioNueve {
         precioProducto = miSc.nextFloat();
         
         total = cantidad*precioProducto;
-        System.out.println("El total es: "+total);
+        System.out.println("El total es: "+total);*/
+       
+      String Dato; 
+      Integer cantidad=0;
+      float precioProducto=0, total=0;
+      Scanner miSc = new Scanner(System.in);
+      
+        System.out.println("Ingrese cantidad de poducto");
+        Dato = miSc.next();
+        cantidad = Integer.parseInt(Dato);
+        //System.out.println("El dato ingresado es: "+cantidad);
         
+        System.out.println("Ingrese precio del producto: ");
+        Dato = miSc.next();
+        precioProducto = Float.parseFloat(Dato);
+        //System.out.println(" el precio ingresado es: "+precioProducto);
+        total=cantidad*precioProducto;
+        System.out.println("El total es: "+total);
     }
     
 }
