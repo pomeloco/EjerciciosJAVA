@@ -5,6 +5,8 @@
  */
 package ejerciciosiete;
 
+import java.util.Scanner;
+
 /**
  *
  * @author alumno
@@ -17,6 +19,14 @@ public class EjercicioSiete {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        float base=0,perimetro=0;
+        Scanner miSc = new Scanner(System.in);
+        
+        System.out.println("Ingrese la base del cuadrado: ");
+        base = miSc.nextInt();
+        
+        perimetro = 4*base;
+        System.out.println("El perimetro es de: "+perimetro);
     }
     
 }
