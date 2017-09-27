@@ -5,7 +5,6 @@
  */
 package adivinaelnumero;
 
-import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ public class AdivinaElNumero {
         Random iRandom = new Random();
         Scanner scScanner = new Scanner(System.in);
         String szDatoAux;
-        Integer iNumRandom,iNumeroUsuario;
+        Integer iNumRandom,iNumeroUsuario, iDiferencia;
         
         iNumRandom = (int)(iRandom.nextDouble()*10+1);  //Genera random de 1 a 10
         //iNumRandom = iRandom.nextInt(10); //aparece el 0
@@ -45,10 +44,33 @@ public class AdivinaElNumero {
             }else{
                 System.out.println("Te pasaste!!");
             }
+        
             
-        }
-    }
-    
+        iDiferencia=Math.abs(iNumRandom-iNumeroUsuario); //valor siempre positivo
+        
+            switch(iDiferencia){
+
+                case 1:
+                    System.out.println("Casi Casi");
+                    break;
+
+                case 2:
+                    System.out.println("Cerca!");
+                    break;
+
+                case 3:
+                    System.out.println("ni cerca!");
+                    break;
+                    
+                case 4:
+                    System.out.println("Bien lejos!");
+                    break;
+
+                 default: System.out.println("Sos horrible :v");                
+
+            }//switch 
+        }//else (perdio)
+    } 
 }
 
 /**
