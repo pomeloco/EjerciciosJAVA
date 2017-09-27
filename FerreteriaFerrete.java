@@ -33,7 +33,7 @@ public class FerreteriaFerrete {
         
         if(nCantLamparitas>=3){
             
-            if(nCantLamparitas <= 6){
+            if(nCantLamparitas >= 6){
                 
                 iTotalAPagar= (nCantLamparitas*iPrecioLamparitas) - ((iPrecioLamparitas*50)/100);
                 
@@ -42,6 +42,7 @@ public class FerreteriaFerrete {
                 switch(nCantLamparitas){
                     
                     case 5: 
+                        
                         if(szMarcaLamparitas.equals("ArgentinaLuz")){
                         
                         iTotalAPagar= (float)(nCantLamparitas*iPrecioLamparitas) - ((iPrecioLamparitas*40)/100);
@@ -51,7 +52,8 @@ public class FerreteriaFerrete {
                          iTotalAPagar= (float)(nCantLamparitas*iPrecioLamparitas) - ((iPrecioLamparitas*30)/100);
                             
                         }
-                        break;
+                        
+                    break;
                     
                     
                     case 4:
@@ -65,18 +67,24 @@ public class FerreteriaFerrete {
                             iTotalAPagar= (float)(nCantLamparitas*iPrecioLamparitas) - ((iPrecioLamparitas*20)/100);
                         }
                         
-                        break;
+                    break;
                     
                     case 3:
                             if(szMarcaLamparitas.equals("ArgentinaLuz")){
+                                
                                 iTotalAPagar= (nCantLamparitas*iPrecioLamparitas) - ((iPrecioLamparitas*15)/100);
+                                
                             }else if(szMarcaLamparitas.equalsIgnoreCase("FelipeLamparas")){
+                                
                                 iTotalAPagar= (nCantLamparitas*iPrecioLamparitas) - ((iPrecioLamparitas*10)/100);
+                                
                             }else{
+                                
                                 iTotalAPagar= (nCantLamparitas*iPrecioLamparitas) - ((iPrecioLamparitas*5)/100);
+                                
                             }
                         
-                        break;
+                    break;
                 }
                 
             }
