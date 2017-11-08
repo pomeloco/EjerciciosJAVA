@@ -1,0 +1,16 @@
+Clases:
+	
+	? public static void mostrar(){		•Solo se invoca con la clase, ej: clase.mostrar();
+						•No usa "this"
+	  ->metodo estatico;
+
+
+	
+
+
+
+	? public void mostrar(){		• Solo se invica po un objeto o instancia de la clase
+						EJ: clase OBJ = new clase();	
+	  ->metodo instancia			OBJ.mostrar();
+
+						•Usa "this"
