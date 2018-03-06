@@ -6,8 +6,10 @@
 package vista;
 
 import entidades.producto;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -17,7 +19,7 @@ public class formProducto extends javax.swing.JFrame {
 
    
     DefaultListModel Modelo;
-    
+    ButtonGroup GrupoDeOrdenamiento;
     producto productosArray[];
     
     
@@ -28,10 +30,20 @@ public class formProducto extends javax.swing.JFrame {
     public formProducto() {
         
         initComponents();
-        
+        this.setTitle("Productos");
         this.productosArray = new producto[10];
         this.Modelo = new DefaultListModel();
         this.lstProductos.setModel(Modelo);
+        
+     /* JRadioButton btn1 = new JRadioButton();
+      
+      
+      JRadioButton btn2 = new JRadioButton();
+        
+        GrupoDeOrdenamiento.add(btn1);
+        GrupoDeOrdenamiento.add(btn2);
+       */ 
+        
         
     }
 
@@ -49,6 +61,10 @@ public class formProducto extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         lstProductos = new javax.swing.JList<>();
         txtPrecio = new javax.swing.JTextField();
+        etiquetaProducto = new javax.swing.JLabel();
+        etiquetaPrecio = new javax.swing.JLabel();
+        btnOrdenarNombre = new javax.swing.JRadioButton();
+        btnOrdenarPrecio = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,12 +94,31 @@ public class formProducto extends javax.swing.JFrame {
             }
         });
 
+        etiquetaProducto.setText("Nombre");
+
+        etiquetaPrecio.setText("Precio");
+
+        btnOrdenarNombre.setText("Ordenar Nombre");
+        btnOrdenarNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarNombreActionPerformed(evt);
+            }
+        });
+
+        btnOrdenarPrecio.setText("Ordenar Precio");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 65, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiquetaProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(etiquetaPrecio)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -92,18 +127,33 @@ public class formProducto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(132, 132, 132)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnOrdenarPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnOrdenarNombre, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaProducto))
                 .addGap(18, 18, 18)
-                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaPrecio))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAgregar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(btnOrdenarNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnOrdenarPrecio)))
                 .addGap(18, 18, 18)
-                .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -133,8 +183,9 @@ public class formProducto extends javax.swing.JFrame {
             
         producto unProducto = new producto(sNombre, sPrecio);
         
-        this.productosArray[0] = unProducto;
-        
+        /*int indiceLibre = this.retonarPrimerLugarLibre(productosArray);
+        this.productosArray[indiceLibre] = unProducto;*/
+        this.cargarProducto(unProducto);
         //this.Modelo.addElement(unProducto.mostrarProducto());
         this.cargarModelo(productosArray);
         this.txtNombre.setText("");
@@ -146,7 +197,7 @@ public class formProducto extends javax.swing.JFrame {
 
     private void cargarModelo (producto[] ArrayProd){
     
-        
+     
         for (int i = 0; i < ArrayProd.length; i++) {
             
             if(ArrayProd[i]!= null){
@@ -162,6 +213,24 @@ public class formProducto extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private int retonarPrimerLugarLibre(producto[] arrayProducto){
+        
+        int i;
+        
+          for (i = 0; i < arrayProducto.length; i++) {
+            
+            if(arrayProducto[i]== null){          
+            break;
+            }
+           
+        }
+          
+         if(i == arrayProducto.length){
+             i=-1;
+         } 
+    return i;
+    }
+    
     private void mostrarAlerta(){
         
         JDialog ventana = new JDialog();  
@@ -177,6 +246,24 @@ public class formProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_txtPrecioActionPerformed
+
+    private boolean cargarProducto(producto unProducto){
+        
+        boolean retorno=false;
+        
+        if(this.retonarPrimerLugarLibre(productosArray)!=-1){
+            
+            this.productosArray[this.retonarPrimerLugarLibre(productosArray)]=unProducto;
+            retorno = true;
+        }
+        
+        
+        return retorno;
+    }
+    
+    private void btnOrdenarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOrdenarNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,6 +302,10 @@ public class formProducto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JRadioButton btnOrdenarNombre;
+    private javax.swing.JRadioButton btnOrdenarPrecio;
+    private javax.swing.JLabel etiquetaPrecio;
+    private javax.swing.JLabel etiquetaProducto;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lstProductos;
     private javax.swing.JTextField txtNombre;
